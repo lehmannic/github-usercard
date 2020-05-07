@@ -58,11 +58,11 @@
     </div>
 */
 function addGithubData(githubName) {
-  // step 1
+
   axios.get(`https://api.github.com/users/${githubName}`)
+    // step 1
     .then(response => {
       const githubData = response.data;
-
       // step 4
       document.querySelector('.cards').appendChild(cardMaker(githubData));
     })
@@ -119,8 +119,10 @@ function cardMaker(attrs) {
   return card
 }
 
+// add myself
+addGithubData('lehmannic')
 
 // step 5
-const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell', 'lehmannic'];
+const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell', ];
 followersArray.forEach(username => addGithubData(`${username}`))
 
